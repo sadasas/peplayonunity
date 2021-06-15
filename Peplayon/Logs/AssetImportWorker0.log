@@ -11,19 +11,19 @@ D:\app\New folder\2020.3.0f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-E:/gameunity/Peplayon
+E:/gameunity/Peplayon/peplayonunity/Peplayon
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-49932
-Successfully changed project path to: E:/gameunity/Peplayon
-E:/gameunity/Peplayon
+54359
+Successfully changed project path to: E:/gameunity/Peplayon/peplayonunity/Peplayon
+E:/gameunity/Peplayon/peplayonunity/Peplayon
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 92.81 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 114.68 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.0f1 (c7b5465681fb)
 [Subsystems] Discovering subsystems at path D:/app/New folder/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path E:/gameunity/Peplayon/Assets
+[Subsystems] Discovering subsystems at path E:/gameunity/Peplayon/peplayonunity/Peplayon/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -36,50 +36,23 @@ Initialize mono
 Mono path[0] = 'D:/app/New folder/2020.3.0f1/Editor/Data/Managed'
 Mono path[1] = 'D:/app/New folder/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/app/New folder/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56340
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56352
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/app/New folder/2020.3.0f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/app/New folder/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: D:/app/New folder/2020.3.0f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.003307 seconds.
+Registered in 0.003200 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 86.40 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 131.21 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.342 seconds
+- Completed reload, in  2.783 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006238 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 70.57 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Find all reader and writers took 103 milliseconds
-Script Module: UnityEngine.UI.dll
-Weave behaviours and messages took89 milliseconds
-Find all reader and writers took 68 milliseconds
-Script Module: Unity.RenderPipelines.Core.Runtime.dll
-Weave behaviours and messages took66 milliseconds
-Find all reader and writers took 69 milliseconds
-Script Module: UnityEngine.TestRunner.dll
-Weave behaviours and messages took37 milliseconds
-Find all reader and writers took 71 milliseconds
-Script Module: Unity.Mathematics.dll
-Weave behaviours and messages took211 milliseconds
-Find all reader and writers took 63 milliseconds
-Script Module: SimpleWebTransport.dll
-Weave behaviours and messages took6 milliseconds
-Find all reader and writers took 75 milliseconds
-Script Module: Unity.Timeline.dll
-Weave behaviours and messages took37 milliseconds
+Registered in 0.003688 seconds.
