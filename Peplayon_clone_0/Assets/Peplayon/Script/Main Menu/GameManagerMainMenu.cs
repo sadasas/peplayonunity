@@ -8,6 +8,7 @@ public class GameManagerMainMenu : MonoBehaviour
     private int CharacterSelected1;
     private int CharacterSelected2;
     private int CharacterSelected3;
+    private int CharacterSelected4;
     private GameObject CurrentCharacter;
 
     [SerializeField]
@@ -31,6 +32,7 @@ public class GameManagerMainMenu : MonoBehaviour
         CharacterSelected1 = PlayerPrefs.GetInt("CharacterOne");
         CharacterSelected2 = PlayerPrefs.GetInt("CharacterTwo");
         CharacterSelected3 = PlayerPrefs.GetInt("CharacterThree");
+        CharacterSelected4 = PlayerPrefs.GetInt("Characterfour");
         if (CharacterSelected1 == 1)
         {
             SpawnCharacterMainMenu(0);
@@ -47,6 +49,12 @@ public class GameManagerMainMenu : MonoBehaviour
         {
             SpawnCharacterMainMenu(2);
             selectRotate = 2;
+            Debug.Log("SPAWN CHARACTER 3");
+        }
+        else if (CharacterSelected4 == 1)
+        {
+            SpawnCharacterMainMenu(3);
+            selectRotate = 3;
             Debug.Log("SPAWN CHARACTER 3");
         }
         else

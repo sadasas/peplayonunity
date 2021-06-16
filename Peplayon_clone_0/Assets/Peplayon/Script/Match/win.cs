@@ -8,12 +8,15 @@ using Peplayon;
 
 public class win : NetworkBehaviour
 {
+    public static win instance;
+
     [SerializeField]
     private GameObject HUDLose;
 
+    public int index;
     private GameObject currentQualified;
 
-    public int playerlolos, spaceindex = 1;
+    public int playerlolos, spaceindex = 1, kualifikasi;
     public string[] sceneList;
 
     public GameObject canvasDisplayQualified, canvasDisplayChangeCamera, CameraSee;
@@ -25,10 +28,16 @@ public class win : NetworkBehaviour
     private Transform modeView1, modeView2, modeView3;
 
     private Vector3 currentModeView;
+    private bool gg;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
-        camera1 = GameObject.FindGameObjectWithTag("Player").gameObject;
+        camera1 = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
         modeView1 = GameObject.FindGameObjectWithTag("ModeView1").transform;
         modeView2 = GameObject.FindGameObjectWithTag("ModeView2").transform;
         modeView3 = GameObject.FindGameObjectWithTag("ModeView3").transform;
@@ -42,13 +51,16 @@ public class win : NetworkBehaviour
 
             Debug.Log("lolos");
         }
-        if (lolos)
+
+        if (lolos && hasAuthority)
         {
-            if (playerlolos == 2)
+            if (playerlolos == kualifikasi && !gg)
             {
-                if (hasAuthority)
-                    NextMap();
+                NetworkClient.Ready();
+                gg = true;
+                NextMap();
             }
+
             canvasDisplayChangeCamera.SetActive(true);
             LeanTween.scale(canvasDisplayChangeCamera, Vector3.one, TweenTimeQualified);
             if (Input.GetKeyDown(KeyCode.Space) && spaceindex == 1)
@@ -87,13 +99,14 @@ public class win : NetworkBehaviour
         }
         else if (!lolos)
         {
-            if (playerlolos == 2)
+            if (playerlolos == kualifikasi)
             {
+                AuthoryManager am = GameObject.FindGameObjectWithTag("GameManager").GetComponent<AuthoryManager>();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 camera1.SetActive(true);
-                HUDLose.SetActive(true);
-                Debug.Log("kalah");
+                am.Lose = true;
+                Debug.Log("LALAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
             }
         }
     }
@@ -166,13 +179,19 @@ public class win : NetworkBehaviour
     private void NextMap()
     {
         Scene activeScene = SceneManager.GetActiveScene();
-        if (activeScene.name == sceneList[0])
+        Debug.Log("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+
+        if (index == 1)
         {
             NetworkManagerTesting.instance.ServerChangeScene(NetworkManagerTesting.instance.sceneNameList[2]);
         }
-        else
+        else if (index == 2)
         {
             NetworkManagerTesting.instance.ServerChangeScene(NetworkManagerTesting.instance.sceneNameList[1]);
+        }
+        else if (index == 3)
+        {
+            NetworkManagerTesting.instance.ServerChangeScene(NetworkManagerTesting.instance.sceneNameList[3]);
         }
     }
 }

@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class MusicPlayer : MonoBehaviour
 {
+    public static MusicPlayer instance;
     public Slider ss;
     public Slider sfx;
     public AudioSource sound;
     public AudioSource beat;
     public AudioSource BGMGAME;
 
-    [SerializeField]
-    private List<AudioSource> SFX = new List<AudioSource>();
+    public List<AudioSource> SFX = new List<AudioSource>();
 
     private float musicVolume = 1f;
     private float sfxVolume = 1f;
@@ -23,8 +23,14 @@ public class MusicPlayer : MonoBehaviour
     public bool isnotplaying;
     private bool sorak = true;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
+        SFX.Clear();
         if (MainMenu)
         {
             beat.Play();

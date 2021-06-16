@@ -23,13 +23,12 @@ public class NetworkManagerTesting : NetworkManager
 
     private bool colapse = false;
 
-    public GameObject serverOrClient, localPlayer, player = null, cameraPrefab, killZonePrefab, cameraPlayer, randomScenePrefab, spawnManagerPrefab;
+    public GameObject player = null, cameraPrefab, killZonePrefab, cameraPlayer, randomScenePrefab, spawnManagerPrefab;
     public GameObject[] characterPrefab, itemPrefab, obstacle1Map2Prefab, obstacle2Map2Prefab, obstacle3Map2Prefab;
 
     public List<Transform> spawnPointItem = new List<Transform>();
 
     public string[] sceneNameList;
-    private int isCharacterOne, isCharacterTwo, isCharacterThree;
 
     [SerializeField]
     private NetworkIdentity localPlayerPrefab;
@@ -40,7 +39,6 @@ public class NetworkManagerTesting : NetworkManager
     {
         Debug.Log("SERVER ACTIVE");
         base.OnStartServer();
-        serverOrClient.name = ("SERVER");
 
         GameObject go = Instantiate(spawnManagerPrefab, NetworkManager.startPositions[startPositionIndex].position, Quaternion.identity);
         NetworkServer.Spawn(go);
@@ -77,6 +75,7 @@ public class NetworkManagerTesting : NetworkManager
     {
         playerCount = 0;
         ObstacleManager.instance.itemPoint.Clear();
+
         base.OnServerChangeScene(newSceneName);
     }
 
@@ -89,6 +88,8 @@ public class NetworkManagerTesting : NetworkManager
             ObstacleManager.instance.setWin = true;
             ObstacleManager.instance.pointAdded = false;
         }
+
+        SpawnManager.instance.startpos = 0;
 
         if (activeScene.name == sceneNameList[2])
         {
@@ -105,13 +106,9 @@ public class NetworkManagerTesting : NetworkManager
     public override void OnServerReady(NetworkConnection conn)
     {
         Scene activeScene = SceneManager.GetActiveScene();
-        if (activeScene.name == sceneNameList[1] || activeScene.name == sceneNameList[2])
+        if (activeScene.name == sceneNameList[1] || activeScene.name == sceneNameList[2] || activeScene.name == sceneNameList[3])
         {
             SpawnManager.instance.SetCharacter(conn);
-        }
-        if (activeScene.name == sceneNameList[3])
-        {
-            SpawnManager.instance.SetCharactermAP3(conn);
         }
 
         playerCount++;
@@ -131,7 +128,6 @@ public class NetworkManagerTesting : NetworkManager
     public override void OnClientSceneChanged(NetworkConnection conn)
     {
         NetworkClient.Ready();
-        Scene activeScene = SceneManager.GetActiveScene();
 
         base.OnClientSceneChanged(conn);
     }
@@ -142,7 +138,7 @@ public class NetworkManagerTesting : NetworkManager
 
     private void AddLocalPlayer(NetworkConnection conn)
     {
-        localPlayer = Instantiate(localPlayerPrefab.gameObject, NetworkManager.startPositions[1].position, Quaternion.identity);
+        GameObject localPlayer = Instantiate(localPlayerPrefab.gameObject, NetworkManager.startPositions[1].position, Quaternion.identity);
 
         localPlayer.name = $"{localPlayerPrefab.gameObject.name} [connId={conn.connectionId}]";
 
@@ -176,11 +172,11 @@ public class NetworkManagerTesting : NetworkManager
         {
             if (numPlayers == 1)
             {
-                Debug.Log("win");
+                ChangeScene(4);
             }
         }
         Debug.Log(numPlayers);
-        if (numPlayers >= 1)
+        if (numPlayers >= 2)
         {
             if (!colapse)
             {
@@ -205,7 +201,7 @@ public class NetworkManagerTesting : NetworkManager
         }
         if (Input.GetKey(KeyCode.Alpha3))
         {
-            ChangeScene(3);
+            //ChangeScene(3);
         }
     }
 

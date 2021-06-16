@@ -1208,7 +1208,10 @@ namespace Mirror
                 // this is now allowed (was not for a while)
                 //Debug.Log("Ready with no player object");
             }
-            NetworkServer.SetClientReady(conn);
+            else
+            {
+                NetworkServer.SetClientReady(conn);
+            }
         }
 
         /// <summary>Called on server when a client requests to add the player. Adds playerPrefab by default. Can be overwritte.</summary>

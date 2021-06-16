@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovableObs : MonoBehaviour
 {
+    public static MovableObs instance;
     public float distance = 5f; //Distance that moves the object
     public bool horizontal = true; //If the movement is horizontal or vertical
     public float speed = 3f;
@@ -15,6 +16,7 @@ public class MovableObs : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         startPos = transform.position;
         if (horizontal)
             transform.position += Vector3.right * offset;

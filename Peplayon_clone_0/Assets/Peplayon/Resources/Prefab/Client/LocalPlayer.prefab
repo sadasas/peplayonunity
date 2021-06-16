@@ -632,8 +632,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dd: {fileID: 0}
-  Camera2: {fileID: 0}
-  Camera1: {fileID: 0}
   index: 0
   CountStart: {fileID: 2381498316098243145}
   txt: {fileID: 5668228402877197360}
@@ -1020,6 +1018,8 @@ MonoBehaviour:
   mapScene:
   - Map1
   - Map2
+  Lose: 0
+  losePrefab: {fileID: 7538796739547972852, guid: 0f3eaa73564fabc4fbdefa53fb5f74a1, type: 3}
 --- !u!114 &8583899288916166501
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,240 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.0f1 (c7b5465681fb) revision 13088070'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home Single Language; OS build 19042.985; Version 2009; 64bit' Language: 'en' Physical Memory: 8034 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+D:\app\New folder\2020.3.0f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+E:/gameunity/Peplayon/peplayonunity/Peplayon_clone_0
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+60538
+Successfully changed project path to: E:/gameunity/Peplayon/peplayonunity/Peplayon_clone_0
+E:/gameunity/Peplayon/peplayonunity/Peplayon_clone_0
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 78.52 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.0f1 (c7b5465681fb)
+[Subsystems] Discovering subsystems at path D:/app/New folder/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/gameunity/Peplayon/peplayonunity/Peplayon_clone_0/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c92)
+    Vendor:   
+    VRAM:     4021 MB
+    Driver:   26.21.14.4128
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Initialize mono
+Mono path[0] = 'D:/app/New folder/2020.3.0f1/Editor/Data/Managed'
+Mono path[1] = 'D:/app/New folder/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/app/New folder/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56624
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/app/New folder/2020.3.0f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/app/New folder/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: D:/app/New folder/2020.3.0f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.002898 seconds.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 83.85 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.400 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.004672 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 79.66 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Find all reader and writers took 112 milliseconds
+Script Module: UnityEngine.UI.dll
+Weave behaviours and messages took131 milliseconds
+Find all reader and writers took 112 milliseconds
+Script Module: Unity.RenderPipelines.Core.Runtime.dll
+Weave behaviours and messages took119 milliseconds
+Find all reader and writers took 113 milliseconds
+Script Module: UnityEngine.TestRunner.dll
+Weave behaviours and messages took50 milliseconds
+Find all reader and writers took 121 milliseconds
+Script Module: Unity.Mathematics.dll
+Weave behaviours and messages took331 milliseconds
+Find all reader and writers took 127 milliseconds
+Script Module: SimpleWebTransport.dll
+Weave behaviours and messages took12 milliseconds
+Find all reader and writers took 129 milliseconds
+Script Module: Unity.Timeline.dll
+Weave behaviours and messages took57 milliseconds
+Find all reader and writers took 178 milliseconds
+Script Module: Unity.RenderPipelines.Universal.Runtime.dll
+Weave behaviours and messages took178 milliseconds
+Find all reader and writers took 104 milliseconds
+Script Module: Unity.TextMeshPro.dll
+Weave behaviours and messages took141 milliseconds
+Find all reader and writers took 88 milliseconds
+Script Module: Telepathy.dll
+Weave behaviours and messages took9 milliseconds
+Find all reader and writers took 183 milliseconds
+Script Module: kcp2k.dll
+Weave behaviours and messages took15 milliseconds
+Find all reader and writers took 136 milliseconds
+Script Module: Mirror.Examples.Cloud.GUI.dll
+Weave behaviours and messages took6 milliseconds
+Find all reader and writers took 102 milliseconds
+Script Module: Mirror.Cloud.dll
+Weave behaviours and messages took5 milliseconds
+Find all reader and writers took 101 milliseconds
+Script Module: Unity.RenderPipelines.Core.ShaderLibrary.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 107 milliseconds
+Script Module: Unity.RenderPipelines.Universal.Shaders.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 103 milliseconds
+Script Module: Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 114 milliseconds
+Script Module: Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 147 milliseconds
+Script Module: UnityEditor.TestRunner.dll
+Weave behaviours and messages took74 milliseconds
+Find all reader and writers took 146 milliseconds
+Script Module: UnityEditor.UI.dll
+Weave behaviours and messages took26 milliseconds
+Find all reader and writers took 95 milliseconds
+Script Module: Unity.ShaderGraph.Utilities.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 139 milliseconds
+Script Module: ParrelSync.dll
+Weave behaviours and messages took3 milliseconds
+Find all reader and writers took 99 milliseconds
+Script Module: Mirror.CompilerSymbols.dll
+Weave behaviours and messages took0 milliseconds
+Mono: successfully reloaded assembly
+- Completed reload, in  9.972 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 1.06 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2820 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 126.4 MB.
+System memory in use after: 126.6 MB.
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3260.
+Total: 5.360700 ms (FindLiveObjects: 0.567600 ms CreateObjectMapping: 0.329800 ms MarkObjects: 4.355100 ms  DeleteObjects: 0.106400 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Peplayon/Scene/MainMenu.unity
+  artifactKey: Guid(e8baf7afbd318334dbdc2e1d5d0bde91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Peplayon/Scene/MainMenu.unity using Guid(e8baf7afbd318334dbdc2e1d5d0bde91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5485166d24e41238646333eca3a68ca3') in 0.028072 seconds
+  Import took 0.036494 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004452 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.77 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.550 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2697 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 119.4 MB.
+System memory in use after: 119.6 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 3263.
+Total: 4.914000 ms (FindLiveObjects: 0.459600 ms CreateObjectMapping: 0.245900 ms MarkObjects: 4.155500 ms  DeleteObjects: 0.050100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010382 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.87 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.976 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2697 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 119.4 MB.
+System memory in use after: 119.7 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 3266.
+Total: 9.804900 ms (FindLiveObjects: 0.746500 ms CreateObjectMapping: 0.937100 ms MarkObjects: 8.062000 ms  DeleteObjects: 0.056100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 758.619827 seconds.
+  path: Assets/Peplayon/Resources/Prefab/Map3/Deadzone/Deadzonee.prefab
+  artifactKey: Guid(9859bbe06b7384b43a80667af4a17002) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Peplayon/Resources/Prefab/Map3/Deadzone/Deadzonee.prefab using Guid(9859bbe06b7384b43a80667af4a17002) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cb129ac9914c386ff3461d85e46c66b') in 0.359745 seconds
+  Import took 0.369490 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003362 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.181 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2697 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 124.7 MB.
+System memory in use after: 124.9 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 3315.
+Total: 2.595800 ms (FindLiveObjects: 0.401200 ms CreateObjectMapping: 0.184600 ms MarkObjects: 1.988200 ms  DeleteObjects: 0.020600 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

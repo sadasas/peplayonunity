@@ -9,7 +9,7 @@ public class SpawnManager : NetworkBehaviour
     private int isCharacterOne, isCharacterTwo, isCharacterThree;
     private Transform player;
     public GameObject dustTriggerPrefab, killZonePrefab, cameraPrefab, cameraPrefab1, plyr, cameraPlayer;
-
+    public int startpos = 0;
     public GameObject[] characterPrefab, characterPrefabMap3;
     public bool characterAdded = false, characterAdded1 = false;
 
@@ -39,27 +39,28 @@ public class SpawnManager : NetworkBehaviour
 
         if (isCharacterOne == 1)
         {
-            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[startpos].position, transform.rotation);
         }
         else if (isCharacterTwo == 1)
         {
-            plyr = Instantiate(characterPrefab[1], NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+            plyr = Instantiate(characterPrefab[1], NetworkManager.startPositions[startpos].position, transform.rotation);
         }
         else if (isCharacterThree == 1)
         {
-            plyr = Instantiate(characterPrefab[2], NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+            plyr = Instantiate(characterPrefab[2], NetworkManager.startPositions[startpos].position, transform.rotation);
         }
         else
         {
-            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[startpos].position, transform.rotation);
         }
 
-        cameraPlayer = Instantiate(cameraPrefab, NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+        cameraPlayer = Instantiate(cameraPrefab, NetworkManager.startPositions[startpos].position, transform.rotation);
 
         NetworkServer.Spawn(plyr, conn);
         NetworkServer.Spawn(cameraPlayer, conn);
         NetworkServer.Spawn(setKillZone_0, conn);
         characterAdded = true;
+        startpos++;
     }
 
     [Server]
@@ -68,27 +69,28 @@ public class SpawnManager : NetworkBehaviour
     {
         if (isCharacterOne == 1)
         {
-            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[startpos].position, transform.rotation);
         }
         else if (isCharacterTwo == 1)
         {
-            plyr = Instantiate(characterPrefab[1], NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+            plyr = Instantiate(characterPrefab[1], NetworkManager.startPositions[startpos].position, transform.rotation);
         }
         else if (isCharacterThree == 1)
         {
-            plyr = Instantiate(characterPrefab[2], NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+            plyr = Instantiate(characterPrefab[2], NetworkManager.startPositions[startpos].position, transform.rotation);
         }
         else
         {
-            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[startpos].position, transform.rotation);
         }
 
-        cameraPlayer = Instantiate(cameraPrefab, NetworkManager.startPositions[NetworkManager.startPositionIndex].position, transform.rotation);
+        cameraPlayer = Instantiate(cameraPrefab, NetworkManager.startPositions[startpos].position, transform.rotation);
 
         NetworkServer.Spawn(plyr, conn);
         NetworkServer.Spawn(cameraPlayer, conn);
 
         characterAdded = true;
+        startpos++;
     }
 
     [ClientRpc]
@@ -117,10 +119,10 @@ public class SpawnManager : NetworkBehaviour
             {
                 characterAdded = false;
                 AuthoryManager.instance.CMDChangeTag();
+                AuthoryManager.instance.colapse1 = false;
                 NetworkManagerTesting.instance.SetCutScene();
                 CharacterControls.cutsceneawal = true;
 
-                MovableObs.ready = true;
                 CMDspawnDust();
             }
         }
@@ -129,6 +131,7 @@ public class SpawnManager : NetworkBehaviour
     [ClientRpc]
     public void ClienRPCSpawnDust()
     {
+        MovableObs.ready = true;
         player = null;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 

@@ -180,7 +180,6 @@ public class UI : NetworkBehaviour
     [ClientRpc]
     public void ClientRPCsetDust(Vector3 cccc)
     {
-        /*Transform DD = GameObject.FindGameObjectWithTag("Dust").transform;*/
         Instantiate(dust, cccc, Quaternion.identity, gk);
         Debug.Log("DUST");
     }

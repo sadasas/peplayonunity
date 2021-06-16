@@ -65,6 +65,7 @@ public class CutScene : MonoBehaviour
         Debug.Log("Ssssssssssssssssssssssssssdfffffffffffffffffffffffffffffffffffffffffffffffffffssssss");
         Camera1.enabled = true;
         dd.SetActive(false);
+
         LeanTween.move(Camera1.gameObject, new Vector3(58.2910538f, 85.07f, -28.120369f), 2f);
 
         LeanTween.rotate(Camera1.gameObject, new Vector3(18.8000011f, 282.5f, 0), 2f);
@@ -83,7 +84,7 @@ public class CutScene : MonoBehaviour
         yield return new WaitForSeconds(3f);
         Camera2.enabled = true;
         Camera1.enabled = false;
-
+        CountStart.SetActive(true);
         countdown.Play();
 
         LeanTween.scale(CountStart, Vector3.one, 0.3f)
@@ -106,6 +107,7 @@ public class CutScene : MonoBehaviour
         txt.text = "3";
         countdown.Play();
         yield return new WaitForSeconds(0.7f);
+        CountStart.transform.localScale = Vector3.zero;
         CountStart.SetActive(false);
         horn.Play();
 
@@ -113,12 +115,14 @@ public class CutScene : MonoBehaviour
         CharacterControls.cutsceneawal = false;
         dd.SetActive(true);
         Camera2.enabled = false;
+        Obstacle1Map3.active = true;
     }
 
     private IEnumerator startCutScene()
     {
         Debug.Log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
         dd.SetActive(false);
+
         LeanTween.move(Camera1.gameObject, new Vector3(16.2000008f, 19.8999996f, 188f), 9f);
         swepp.Play();
         yield return new WaitForSeconds(10);
@@ -144,7 +148,7 @@ public class CutScene : MonoBehaviour
         Camera2.enabled = false;
         dd.SetActive(true);
         countdown.Play();
-
+        CountStart.SetActive(true);
         LeanTween.scale(CountStart, Vector3.one, 0.3f)
             .setEaseInCirc();
         yield return new WaitForSeconds(0.3f);
@@ -165,6 +169,7 @@ public class CutScene : MonoBehaviour
         txt.text = "3";
         countdown.Play();
         yield return new WaitForSeconds(0.7f);
+        CountStart.transform.localScale = Vector3.zero;
         CountStart.SetActive(false);
         horn.Play();
         yield return new WaitForSeconds(1);

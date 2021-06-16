@@ -9,6 +9,8 @@ public class ObstacleManager : NetworkBehaviour
     public static ObstacleManager instance;
     public bool setObstacleMap3 = false, setObstacleMap2 = false, setItem = false, pointAdded = true, setWin = false;
 
+    public string[] sceneNameListtt;
+
     //MAP3
     public GameObject[] obstacleMap3;
 
@@ -37,7 +39,7 @@ public class ObstacleManager : NetworkBehaviour
 
     private void Update()
     {
-        if (matchPlayed == 2)
+        if (matchPlayed > 2)
         {
             matchPlayed = 0;
         }
@@ -89,12 +91,28 @@ public class ObstacleManager : NetworkBehaviour
     [Server]
     private void SetWinCond()
     {
+        Scene activeScene = SceneManager.GetActiveScene();
+
         Debug.Log("WINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
         Transform pos = GameObject.FindGameObjectWithTag("WinPoint").transform;
-        if (matchPlayed == 0 || matchPlayed == 1)
+        if (matchPlayed == 0)
         {
             matchPlayed++;
-            GameObject win = Instantiate(winPrefab[0], pos.position, pos.rotation);
+            if (activeScene.name == listScene[0])
+            {
+                GameObject win = Instantiate(winPrefab[0], pos.position, pos.rotation);
+                NetworkServer.Spawn(win);
+            }
+            else if (activeScene.name == listScene[1])
+            {
+                GameObject win = Instantiate(winPrefab[1], pos.position, pos.rotation);
+                NetworkServer.Spawn(win);
+            }
+        }
+        else if (matchPlayed == 1)
+        {
+            matchPlayed++;
+            GameObject win = Instantiate(winPrefab[2], pos.position, pos.rotation);
             NetworkServer.Spawn(win);
         }
     }

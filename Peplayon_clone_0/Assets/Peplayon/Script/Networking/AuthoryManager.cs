@@ -13,19 +13,27 @@ public class AuthoryManager : NetworkBehaviour
 
     private Scene checkScene;
 
-    public override void OnStartAuthority()
-    {
-        checkScene = SceneManager.GetActiveScene();
-        base.OnStartAuthority();
-
-        if (mapScene[0] == checkScene.name || mapScene[1] == checkScene.name)
-        {
-        }
-    }
+    public bool Lose = false, colapse = false, colapse1 = false;
+    public GameObject losePrefab;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        if (Lose)
+        {
+            if (!colapse)
+            {
+                colapse = true;
+
+                Debug.Log("settttttttttttttttttttttttttttttlossssssssssssssssssssssssssss");
+                NetworkClient.Disconnect();
+                GameObject aa = Instantiate(losePrefab, transform.position, transform.rotation);
+            }
+        }
     }
 
     #region Get Authority

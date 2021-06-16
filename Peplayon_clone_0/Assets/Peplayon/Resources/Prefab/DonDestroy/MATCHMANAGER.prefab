@@ -69,6 +69,7 @@ MonoBehaviour:
   setItem: 0
   pointAdded: 1
   setWin: 0
+  sceneNameListtt: []
   obstacleMap3:
   - {fileID: 4984143184533412256, guid: f343289eb392c5f4990979605234d37e, type: 3}
   deadZonePrefab: {fileID: 2688499184540527630, guid: 9859bbe06b7384b43a80667af4a17002, type: 3}
@@ -97,15 +98,17 @@ MonoBehaviour:
   - {fileID: 4469179720062365094, guid: 414792820d555d8499f8a481c443257e, type: 3}
   - {fileID: 1197697891600605116, guid: f2267965894b94d4db2bbeb8ce3f8919, type: 3}
   itemPrefab:
-  - {fileID: 6584890414296118639, guid: e8f18bd07792f50418bd8d40d006fef9, type: 3}
-  - {fileID: 6584890414296118639, guid: b3034e85cf902c840987b81a5d9479ee, type: 3}
-  - {fileID: 6584890414296118639, guid: ce6026c8c463f9d48a3d2e3377bc8df8, type: 3}
-  - {fileID: 6584890414296118639, guid: 424646e46031dec42b17e3ddfe734e78, type: 3}
-  - {fileID: 6584890414296118639, guid: d176c40ce25aa0244b73c257d7ff2f33, type: 3}
-  - {fileID: 6584890414296118639, guid: af730877e0660a9439f2e1d4d88a328d, type: 3}
+  - {fileID: 516348387992712387, guid: 761989a759c24734a9648dee974e38ae, type: 3}
+  - {fileID: 516348387992712387, guid: b25b844b08cf5c44da5dfdd975ac38ef, type: 3}
+  - {fileID: 516348387992712387, guid: f0466809463abc349abd0a045fe9426e, type: 3}
+  - {fileID: 516348387992712387, guid: e3877ff4dde6f3e4f88b752a773d759e, type: 3}
+  - {fileID: 516348387992712387, guid: 38f3ac7ed520d4842b393b861f987294, type: 3}
+  - {fileID: 516348387992712387, guid: feeacd7f786655943822e55e9ca31f2a, type: 3}
   itemPoint: []
   winPrefab:
   - {fileID: 906226618039346120, guid: 6f4dc9c5a57ac1b4b8504e7bceafe948, type: 3}
+  - {fileID: 906226618039346120, guid: 3e2af9814c6ebb64a83be34269354913, type: 3}
+  - {fileID: 906226618039346120, guid: 10b78900a1279c54f942b312f378447b, type: 3}
   listScene:
   - Map1
   - Map2
@@ -122,3 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45882fcbd56940439511b2b3899539d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  sceneList: []
+  colapse: 0

@@ -39,7 +39,7 @@ public class ItemPickup : NetworkBehaviour
 
                     Debug.Log("JUMP");
                     Jump();
-                    CMDsetTransparentBox();
+                    CMDsetTransparentBox(this.gameObject);
                 }
                 else if (indexItem == 2)
                 {
@@ -47,7 +47,7 @@ public class ItemPickup : NetworkBehaviour
 
                     Debug.Log("RUN");
                     Run();
-                    CMDsetTransparentBox();
+                    CMDsetTransparentBox(this.gameObject);
                 }
                 else if (indexItem == 3)
                 {
@@ -55,7 +55,7 @@ public class ItemPickup : NetworkBehaviour
 
                     Debug.Log("SLOW");
                     Slow();
-                    CMDsetTransparentBox();
+                    CMDsetTransparentBox(this.gameObject);
                 }
                 else if (indexItem == 4)
                 {
@@ -63,7 +63,7 @@ public class ItemPickup : NetworkBehaviour
 
                     Debug.Log("TRANSCULENT");
                     Transculent();
-                    CMDsetTransparentBox();
+                    CMDsetTransparentBox(this.gameObject);
                 }
                 else if (indexItem == 5)
                 {
@@ -71,7 +71,7 @@ public class ItemPickup : NetworkBehaviour
 
                     Debug.Log("FLASHBACK");
                     Flashback(ohteer.gameObject);
-                    CMDsetTransparentBox();
+                    CMDsetTransparentBox(this.gameObject);
                 }
                 else if (indexItem == 6)
                 {
@@ -79,7 +79,7 @@ public class ItemPickup : NetworkBehaviour
 
                     Debug.Log("STUNT");
                     Stunt();
-                    CMDsetTransparentBox();
+                    CMDsetTransparentBox(this.gameObject);
                 }
             }
         }
@@ -104,17 +104,24 @@ public class ItemPickup : NetworkBehaviour
     #region settransparentbox
 
     [Command]
-    private void CMDsetTransparentBox()
+    private void CMDsetTransparentBox(GameObject ff)
     {
-        ClientRPCsetTransparentBox();
+        ClientRPCsetTransparentBox(ff);
     }
 
     [ClientRpc]
-    public void ClientRPCsetTransparentBox()
+    public void ClientRPCsetTransparentBox(GameObject dd)
     {
         Debug.Log("SENT ALL TO RPC");
         mes.enabled = false;
         coll.enabled = false;
+        for (int i = 0; i <= 6; i++)
+        {
+            GameObject cc = dd.transform.GetChild(i).gameObject;
+            cc.SetActive(false);
+            BoxCollider ff = dd.GetComponent<BoxCollider>();
+            Destroy(ff);
+        }
     }
 
     #endregion settransparentbox
@@ -309,9 +316,10 @@ public class ItemPickup : NetworkBehaviour
         characterControls.jumpHeight = 6f;
         characterControls.speed = 10f;
         characterControls.rb.isKinematic = false;
-        detect.Child();
+
         ui.DestroyAllEffect();
         ui.UIeffect.SetActive(false);
+        detect.Child();
     }
 
     #endregion Coroutine item

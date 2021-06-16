@@ -24,12 +24,6 @@ public class DustTrigger : NetworkBehaviour
             Debug.Log("GROUNDED");
             jump.Play();
 
-            /*
-                        NetworkIdentity player = GameObject.FindGameObjectWithTag("Player").GetComponent<NetworkIdentity>();
-                        NetworkIdentity dust = GetComponent<NetworkIdentity>();
-                        ClientInstance cl = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ClientInstance>();
-                        cl.changeAuthory(dust, player);*/
-
             UI ui = GameObject.FindGameObjectWithTag("GameManager").GetComponent<UI>();
             ui.ClientsetDust(transform.position);
             Grounded = true;

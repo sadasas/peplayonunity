@@ -15,6 +15,7 @@ namespace wahyu
         private int selectedcharacterone;
         private int selectedcharactertwo;
         private int selectedcharactertree;
+        private int selectedcharacterfour;
         private GameObject currentCharacter;
 
         #endregion Variable
@@ -27,6 +28,7 @@ namespace wahyu
             selectedcharacterone = PlayerPrefs.GetInt("CharacterOne");
             selectedcharactertwo = PlayerPrefs.GetInt("CharacterTwo");
             selectedcharactertree = PlayerPrefs.GetInt("CharacterTree");
+            selectedcharacterfour = PlayerPrefs.GetInt("Characterfour");
         }
 
         // Update is called once per frame
@@ -43,6 +45,10 @@ namespace wahyu
             else if (selectedcharactertree == 1)
             {
                 SpawnCharacter(2);
+            }
+            else if (selectedcharacterfour == 1)
+            {
+                SpawnCharacter(3);
             }
             else
             {
