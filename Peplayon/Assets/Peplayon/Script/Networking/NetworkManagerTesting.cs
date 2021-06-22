@@ -4,6 +4,7 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.SceneManagement;
 using Peplayon;
+using Networking;
 
 public struct PlayerMessages : NetworkMessage
 {
@@ -17,6 +18,12 @@ public struct IndexPlayer : NetworkMessage
 
 public class NetworkManagerTesting : NetworkManager
 {
+    [Header("Tambahan Bocil")]
+    [Scene] public string LobbyScene;
+    [SerializeField] GameObject networkPlayerManagerPrefab;
+    public GameObject netPlayer;
+
+    [Header("Wahyu")]
     private int playerCount;
 
     public static NetworkManagerTesting instance;
@@ -28,6 +35,11 @@ public class NetworkManagerTesting : NetworkManager
 
     public List<Transform> spawnPointItem = new List<Transform>();
 
+    /**
+     * GW PAKAI ATTR DARI MIRROR
+     * SCENE ATR MIRROR RETURN STRING(PATH SCENE) EXAMPLE : ASSET/SCENE.UNITY
+     */
+    [Scene]
     public string[] sceneNameList;
 
     [SerializeField]
@@ -39,7 +51,8 @@ public class NetworkManagerTesting : NetworkManager
     {
         Debug.Log("SERVER ACTIVE");
         base.OnStartServer();
-
+        netPlayer = Instantiate(spawnPrefabs.Find(pref => pref.name == "--NetPlayerManager"));
+        NetworkServer.Spawn(netPlayer);
         GameObject go = Instantiate(spawnManagerPrefab, NetworkManager.startPositions[startPositionIndex].position, Quaternion.identity);
         NetworkServer.Spawn(go);
     }
@@ -48,6 +61,11 @@ public class NetworkManagerTesting : NetworkManager
     {
         Debug.Log("CLIENT ACTIVE");
         base.OnStartClient();
+    }
+
+    public override void OnServerConnect(NetworkConnection conn)
+    {
+        base.OnServerConnect(conn);
     }
 
     public override void OnClientConnect(NetworkConnection conn)
@@ -79,10 +97,20 @@ public class NetworkManagerTesting : NetworkManager
         base.OnServerChangeScene(newSceneName);
     }
 
+    public override void OnServerAddPlayer(NetworkConnection conn)
+    {
+        Debug.Log("OnServerAddPlayer");
+        base.OnServerAddPlayer(conn);
+    }
+
     public override void OnServerSceneChanged(string sceneName)
     {
         Scene activeScene = SceneManager.GetActiveScene();
-        if (activeScene.name == sceneNameList[2] || activeScene.name == sceneNameList[1])
+        if(activeScene.path == onlineScene)
+        {
+            Debug.Log("lobby scene");
+        }
+        if (activeScene.path == sceneNameList[2] || activeScene.name == sceneNameList[1])
         {
             ObstacleManager.instance.setItem = true;
             ObstacleManager.instance.setWin = true;
@@ -91,30 +119,30 @@ public class NetworkManagerTesting : NetworkManager
 
         SpawnManager.instance.startpos = 0;
 
-        if (activeScene.name == sceneNameList[2])
+        if (activeScene.path == sceneNameList[2])
         {
             ObstacleManager.instance.setObstacleMap2 = true;
         }
-        if (activeScene.name == sceneNameList[3])
+        if (activeScene.path == sceneNameList[3])
         {
             ObstacleManager.instance.setObstacleMap3 = true;
         }
-
         base.OnServerSceneChanged(sceneName);
     }
 
     public override void OnServerReady(NetworkConnection conn)
     {
         Scene activeScene = SceneManager.GetActiveScene();
-        if (activeScene.name == sceneNameList[1] || activeScene.name == sceneNameList[2] || activeScene.name == sceneNameList[3])
+        if (activeScene.path == sceneNameList[1] || activeScene.path == sceneNameList[2] || activeScene.path == sceneNameList[3])
         {
             SpawnManager.instance.SetCharacter(conn);
         }
 
         playerCount++;
-        if (activeScene.name == sceneNameList[0])
+        if (activeScene.path == sceneNameList[0])
         {
             AddLocalPlayer(conn);
+            SpawnManager.instance.SetCharLobby(conn);
         }
 
         base.OnServerReady(conn);
@@ -128,7 +156,6 @@ public class NetworkManagerTesting : NetworkManager
     public override void OnClientSceneChanged(NetworkConnection conn)
     {
         NetworkClient.Ready();
-
         base.OnClientSceneChanged(conn);
     }
 
@@ -138,71 +165,82 @@ public class NetworkManagerTesting : NetworkManager
 
     private void AddLocalPlayer(NetworkConnection conn)
     {
+        //Debug.Log("AddLocalPlayer");
+        //NetworkServer.Spawn(Instantiate(networkPlayerManagerPrefab));
+
         GameObject localPlayer = Instantiate(localPlayerPrefab.gameObject, NetworkManager.startPositions[1].position, Quaternion.identity);
 
         localPlayer.name = $"{localPlayerPrefab.gameObject.name} [connId={conn.connectionId}]";
 
         NetworkServer.AddPlayerForConnection(conn, localPlayer);
+        NetworkPlayerManager.instance.IntPlayerOnline = numPlayers;
+
     }
 
     #endregion Network Message
 
     #region MonoBehaviour
 
-    private void Awake()
+    void Awake()
     {
         instance = this;
     }
 
     private void Start()
     {
-        if (!isNetworkActive)
-        {
-            Debug.Log("ADD SERVER");
-            StartServer();
-            networkAddress = "localhost";
-        }
+        /**
+         * STRESS
+         */
+        //if (!isNetworkActive)
+        //{
+        //    Debug.Log("ADD SERVER");
+        //    StartServer();
+        //    networkAddress = "localhost";
+        //}
     }
 
     [Server]
     private void Update()
     {
-        Scene activeScene = SceneManager.GetActiveScene();
-        if (activeScene.name == sceneNameList[3])
-        {
-            if (numPlayers == 1)
-            {
-                ChangeScene(4);
-            }
-        }
-        Debug.Log(numPlayers);
-        if (numPlayers >= 2)
-        {
-            if (!colapse)
-            {
-                colapse = true;
-                SetRandomMap();
-                Debug.Log("START MATCH");
-            }
-        }
-        else
-        {
-            Debug.Log("WAIT OTHER PLAYER JOIN");
-        }
+        //Scene activeScene = SceneManager.GetActiveScene();
+        //if (activeScene.name == sceneNameList[3])
+        //{
+        //    if (numPlayers == 1)
+        //    {
+        //        ChangeScene(4);
+        //    }
+        //}
+        ////Debug.Log(numPlayers);
+        ///**
+        // * <remarks>Ini gw matiin buat start ada dilobby</remarks>
+        // */
+        //if (numPlayers >= 2)
+        //{
+        //    if (!colapse)
+        //    {
+        //        //colapse = true;
+        //        //SetRandomMap();
+        //        //Debug.Log("START MATCH");
+        //    }
+        //}
+        //else
+        //{
+        //    Debug.Log("WAIT OTHER PLAYER JOIN");
+        //}
 
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            ChangeScene(1);
-        }
+        //if (Input.GetKey(KeyCode.Alpha1))
+        //{
+        //    ChangeScene(1);
+        //}
 
-        if (Input.GetKey(KeyCode.Alpha2))
-        {
-            ChangeScene(2);
-        }
-        if (Input.GetKey(KeyCode.Alpha3))
-        {
-            //ChangeScene(3);
-        }
+        //if (Input.GetKey(KeyCode.Alpha2))
+        //{
+        //    ChangeScene(2);
+        //}
+        //if (Input.GetKey(KeyCode.Alpha3))
+        //{
+        //    //ChangeScene(3);
+        //}
     }
 
     public void SetCutScene()
@@ -223,4 +261,15 @@ public class NetworkManagerTesting : NetworkManager
     }
 
     #endregion MonoBehaviour
+
+    public override void OnServerDisconnect(NetworkConnection conn)
+    {
+        NetworkPlayerManager.instance.IntPlayerOnline = numPlayers;
+        base.OnServerDisconnect(conn);
+    }
+
+    public void StartGame()
+    {
+        ChangeScene(1);
+    }
 }

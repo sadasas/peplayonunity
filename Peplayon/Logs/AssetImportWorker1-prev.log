@@ -1,0 +1,132 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Users/rizqynugroho9/Documents/Unity/2020.3.2f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+/Users/rizqynugroho9/multiplayer/peplayonunity/Peplayon
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+50569
+Successfully changed project path to: /Users/rizqynugroho9/multiplayer/peplayonunity/Peplayon
+/Users/rizqynugroho9/multiplayer/peplayonunity/Peplayon
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 108.80 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.2f1 (8fd9074bf66c)
+[Subsystems] Discovering subsystems at path /Users/rizqynugroho9/Documents/Unity/2020.3.2f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/rizqynugroho9/multiplayer/peplayonunity/Peplayon/Assets
+GfxDevice: creating device client; threaded=0
+2021-06-21 01:33:00.120 Unity[89960:2184264] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-06-21 01:33:00.120 Unity[89960:2184264] Metal devices available: 1
+2021-06-21 01:33:00.120 Unity[89960:2184264] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
+2021-06-21 01:33:00.122 Unity[89960:2184264] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
+Initializing Metal device caps: Intel(R) Iris(TM) Graphics 6100
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Initialize mono
+Mono path[0] = '/Users/rizqynugroho9/Documents/Unity/2020.3.2f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Users/rizqynugroho9/Documents/Unity/2020.3.2f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Users/rizqynugroho9/Documents/Unity/2020.3.2f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56960
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Users/rizqynugroho9/Documents/Unity/2020.3.2f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Users/rizqynugroho9/Documents/Unity/2020.3.2f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: /Users/rizqynugroho9/Documents/Unity/2020.3.2f1/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.002526 seconds.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 79.15 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.861 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002641 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 74.58 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Disabling WSA platform on asset settings for /Users/rizqynugroho9/multiplayer/peplayonunity/Peplayon/Assets/NuGet.config
+
+DisplayProgressbar: Restoring NuGet Packages
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Find all reader and writers took 178 milliseconds
+Script Module: UnityEngine.UI.dll
+Weave behaviours and messages took163 milliseconds
+Find all reader and writers took 58 milliseconds
+Script Module: Unity.RenderPipelines.Core.Runtime.dll
+Weave behaviours and messages took74 milliseconds
+Find all reader and writers took 58 milliseconds
+Script Module: UnityEngine.TestRunner.dll
+Weave behaviours and messages took37 milliseconds
+Find all reader and writers took 68 milliseconds
+Script Module: Unity.Mathematics.dll
+Weave behaviours and messages took213 milliseconds
+Find all reader and writers took 49 milliseconds
+Script Module: SimpleWebTransport.dll
+Weave behaviours and messages took6 milliseconds
+Find all reader and writers took 50 milliseconds
+Script Module: Unity.Timeline.dll
+Weave behaviours and messages took46 milliseconds
+Find all reader and writers took 116 milliseconds
+Script Module: Unity.RenderPipelines.Universal.Runtime.dll
+Weave behaviours and messages took87 milliseconds
+Find all reader and writers took 89 milliseconds
+Script Module: Unity.TextMeshPro.dll
+Weave behaviours and messages took115 milliseconds
+Find all reader and writers took 46 milliseconds
+Script Module: Telepathy.dll
+Weave behaviours and messages took2 milliseconds
+Find all reader and writers took 66 milliseconds
+Script Module: kcp2k.dll
+Weave behaviours and messages took7 milliseconds
+Find all reader and writers took 77 milliseconds
+Script Module: Mirror.Examples.Cloud.GUI.dll
+Weave behaviours and messages took3 milliseconds
+Find all reader and writers took 123 milliseconds
+Script Module: Mirror.Cloud.dll
+Weave behaviours and messages took6 milliseconds
+Find all reader and writers took 75 milliseconds
+Script Module: Unity.RenderPipelines.Core.ShaderLibrary.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 64 milliseconds
+Script Module: Unity.RenderPipelines.Universal.Shaders.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 57 milliseconds
+Script Module: Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 61 milliseconds
+Script Module: Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 119 milliseconds
+Script Module: UnityEditor.TestRunner.dll
+Weave behaviours and messages took56 milliseconds
+Find all reader and writers took 94 milliseconds
+Script Module: UnityEditor.UI.dll
+Weave behaviours and messages took34 milliseconds
+Find all reader and writers took 59 milliseconds
+Script Module: Unity.ShaderGraph.Utilities.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 335 milliseconds
+Script Module: ParrelSync.dll
+Weave behaviours and messages took7 milliseconds
+Find all reader and writers took 73 milliseconds
+Script Module: Mirror.CompilerSymbols.dll
+Weave behaviours and messages took0 milliseconds
+Find all reader and writers took 132 milliseconds
+Script Module: Unity.Toolchain.Macos-x86_64-Linux-x86_64.dll
+Weave behaviours and messages took1 milliseconds

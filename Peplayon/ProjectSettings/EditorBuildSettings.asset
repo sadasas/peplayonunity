@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scene/Auth.unity
+    guid: 185054f13e5a84d678600e817b8e995c
+  - enabled: 1
+    path: Assets/Scene/Lobby.unity
+    guid: 6b7b036543fba4658af213a6292bede8
+  - enabled: 1
     path: Assets/Peplayon/Scene/MainMenu.unity
     guid: e8baf7afbd318334dbdc2e1d5d0bde91
   - enabled: 1
@@ -23,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Peplayon/Scene/Podium.unity
     guid: 2ad74ca4451922c418fa52bc95e19508
+  - enabled: 0
+    path: Assets/Mirror/Examples/Room/Scenes/OfflineScene.unity
+    guid: 9e6f14982412b2545a0911ebaaa46a23
+  - enabled: 0
+    path: Assets/Mirror/Examples/Room/Scenes/OnlineScene.unity
+    guid: d7a6763559b31854586c9e49916273ef
+  - enabled: 0
+    path: Assets/Mirror/Examples/Room/Scenes/RoomScene.unity
+    guid: 48478f4d522f96945b8396f376299d3a
   m_configObjects: {}

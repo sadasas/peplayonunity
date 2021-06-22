@@ -921,6 +921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7329999843347600323}
   - component: {fileID: 7329999843347600322}
+  - component: {fileID: -5312773762363916362}
   - component: {fileID: 7329999843347600327}
   - component: {fileID: 6013704023736935558}
   - component: {fileID: 1128587206051235725}
@@ -957,6 +958,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7329999843347600326}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &-5312773762363916362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329999843347600326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0d7619723194375a10626a62d74396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  gameManager: {fileID: 0}
 --- !u!114 &7329999843347600327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,6 +1035,8 @@ MonoBehaviour:
   - Map1
   - Map2
   Lose: 0
+  colapse: 0
+  colapse1: 0
   losePrefab: {fileID: 7538796739547972852, guid: 0f3eaa73564fabc4fbdefa53fb5f74a1, type: 3}
 --- !u!114 &8583899288916166501
 MonoBehaviour:
@@ -1040,6 +1058,7 @@ MonoBehaviour:
   cameraPrefab1: {fileID: 4900184099207102883, guid: 306067e48e1258c4b875c641aa6bbcb0, type: 3}
   plyr: {fileID: 0}
   cameraPlayer: {fileID: 0}
+  startpos: 0
   characterPrefab:
   - {fileID: 4286609717996143619, guid: 2cc3dde0e01d8834099f35a60149cfdd, type: 3}
   - {fileID: 4286609717996143619, guid: 2cc3dde0e01d8834099f35a60149cfdd, type: 3}

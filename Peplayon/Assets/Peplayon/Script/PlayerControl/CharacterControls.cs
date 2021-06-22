@@ -4,7 +4,6 @@ using Mirror;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CharacterControls : NetworkBehaviour
-
 {
     public float speed;
     public float airVelocity;
@@ -14,9 +13,11 @@ public class CharacterControls : NetworkBehaviour
     public float maxFallSpeed;
     public float rotateSpeed; //Speed the player rotate
     public float animSpeed;
+    public bool isGround = true;
     private Vector3 moveDir;
 
     public static bool cutsceneawal = true;
+    public static bool isLobbyScene = false;
 
     private GameObject cam = null;
 
@@ -75,7 +76,8 @@ public class CharacterControls : NetworkBehaviour
 
     public bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.3f, ground);
+        isGround = Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.3f, ground);
+        return isGround;
     }
 
     [Client]
@@ -85,119 +87,133 @@ public class CharacterControls : NetworkBehaviour
         {
             MusicPlayer musicplayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
             musicplayer.BGMINGAME = true;
-
             if (!hasAuthority) return;
 
-            cam = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
-            rb = GetComponent<Rigidbody>();
+            //Gw extract buat lobby
+            ControllerPlayerExt();
+        }
+        if (isLobbyScene)
+        {
+            if (!hasAuthority) return;
+            ControllerPlayerExt();
+        }
+    }
 
-            blendtohash = Animator.StringToHash("Blend");
-            anim.SetFloat(blendtohash, blend);
+    /**
+     * Intinya ini gw extract
+     */
+    private void ControllerPlayerExt()
+    {
+        cam = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
+        rb = GetComponent<Rigidbody>();
 
-            if (Animation && blend <= 1f)
+        blendtohash = Animator.StringToHash("Blend");
+        anim.SetFloat(blendtohash, blend);
+
+        if (Animation && blend <= 1f)
+        {
+            blend += animSpeed;
+        }
+        else if (!Animation && blend > 0f)
+        {
+            blend -= animSpeed;
+        }
+        else if (!Animation && blend < 0f)
+        {
+            blend = 0f;
+        }
+
+        if (canMove)
+        {
+            //Debug.Log("canMove");
+            if (moveDir.x != 0 || moveDir.z != 0)
             {
-                blend += animSpeed;
+                /*anim.SetBool("isRun", true);*/
+                Animation = true;
+                Vector3 targetDir = moveDir; //Direction of the character
+
+                targetDir.y = 0;
+                if (targetDir == Vector3.zero)
+                    targetDir = transform.forward;
+                Quaternion tr = Quaternion.LookRotation(targetDir); //Rotation of the character to where it moves
+                Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, Time.deltaTime * rotateSpeed); //Rotate the character little by little
+                transform.rotation = targetRotation;
             }
-            else if (!Animation && blend > 0f)
+            else
             {
-                blend -= animSpeed;
-            }
-            else if (!Animation && blend < 0f)
-            {
-                blend = 0f;
+                Animation = false;
             }
 
-            if (canMove)
+            if (IsGrounded())
             {
-                if (moveDir.x != 0 || moveDir.z != 0)
+                // Calculate how fast we should be moving
+                Vector3 targetVelocity = moveDir;
+                targetVelocity *= speed;
+
+                // Apply a force that attempts to reach our target velocity
+                Vector3 velocity = rb.velocity;
+                if (targetVelocity.magnitude < velocity.magnitude) //If I'm slowing down the character
                 {
-                    /*anim.SetBool("isRun", true);*/
-                    Animation = true;
-                    Vector3 targetDir = moveDir; //Direction of the character
-
-                    targetDir.y = 0;
-                    if (targetDir == Vector3.zero)
-                        targetDir = transform.forward;
-                    Quaternion tr = Quaternion.LookRotation(targetDir); //Rotation of the character to where it moves
-                    Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, Time.deltaTime * rotateSpeed); //Rotate the character little by little
-                    transform.rotation = targetRotation;
+                    targetVelocity = velocity;
+                    rb.velocity /= 1.1f;
                 }
-                else
+                Vector3 velocityChange = (targetVelocity - velocity);
+                velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+                velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+                velocityChange.y = 0;
+                if (!slide)
                 {
-                    Animation = false;
+                    if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
+                        rb.MovePosition(transform.position + moveDir * speed * Time.deltaTime);
+                }
+                else if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
+                {
+                    //Debug.Log(rb.velocity.magnitude);
                 }
 
-                if (IsGrounded())
+                // Jump
+                if (Input.GetKey(KeyCode.Space))
                 {
-                    // Calculate how fast we should be moving
-                    Vector3 targetVelocity = moveDir;
-                    targetVelocity *= speed;
-
-                    // Apply a force that attempts to reach our target velocity
-                    Vector3 velocity = rb.velocity;
-                    if (targetVelocity.magnitude < velocity.magnitude) //If I'm slowing down the character
-                    {
-                        targetVelocity = velocity;
-                        rb.velocity /= 1.1f;
-                    }
-                    Vector3 velocityChange = (targetVelocity - velocity);
-                    velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-                    velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-                    velocityChange.y = 0;
-                    if (!slide)
-                    {
-                        if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
-                            rb.MovePosition(transform.position + moveDir * speed * Time.deltaTime);
-                    }
-                    else if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
-                    {
-                        //Debug.Log(rb.velocity.magnitude);
-                    }
-
-                    // Jump
-                    if (Input.GetKey(KeyCode.Space))
-                    {
-                        anim.SetBool("isJump", true);
-                        rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
-                    }
-                    else
-                    {
-                        anim.SetBool("isJump", false);
-                    }
+                    anim.SetBool("isJump", true);
+                    rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
                 }
                 else
                 {
                     anim.SetBool("isJump", false);
-                    if (!slide)
-                    {
-                        Vector3 targetVelocity = new Vector3(moveDir.x * airVelocity, rb.velocity.y, moveDir.z * airVelocity);
-                        Vector3 velocity = rb.velocity;
-                        Vector3 velocityChange = (targetVelocity - velocity);
-                        velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-                        velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-                        rb.AddForce(velocityChange, ForceMode.VelocityChange);
-                        if (velocity.y < -maxFallSpeed)
-                            rb.velocity = new Vector3(velocity.x, -maxFallSpeed, velocity.z);
-                    }
-                    else if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
-                    {
-                        rb.AddForce(moveDir * 0.15f, ForceMode.VelocityChange);
-                    }
                 }
             }
             else
             {
-                rb.velocity = pushDir * pushForce;
+                anim.SetBool("isJump", false);
+                if (!slide)
+                {
+                    Vector3 targetVelocity = new Vector3(moveDir.x * airVelocity, rb.velocity.y, moveDir.z * airVelocity);
+                    Vector3 velocity = rb.velocity;
+                    Vector3 velocityChange = (targetVelocity - velocity);
+                    velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+                    velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+                    rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                    if (velocity.y < -maxFallSpeed)
+                        rb.velocity = new Vector3(velocity.x, -maxFallSpeed, velocity.z);
+                }
+                else if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
+                {
+                    rb.AddForce(moveDir * 0.15f, ForceMode.VelocityChange);
+                }
             }
-            // We apply gravity manually for more tuning control
-            rb.AddForce(new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0));
         }
+        else
+        {
+            rb.velocity = pushDir * pushForce;
+        }
+        // We apply gravity manually for more tuning control
+        rb.AddForce(new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0));
     }
 
     [Client]
     private void Update()
     {
-        if (cutsceneawal == false)
+        if (cutsceneawal == false || isLobbyScene)
         {
             if (!hasAuthority) return;
             cam = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;

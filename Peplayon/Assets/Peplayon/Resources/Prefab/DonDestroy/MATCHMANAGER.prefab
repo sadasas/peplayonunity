@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2200994516593079641}
   - component: {fileID: 2200994516593079640}
+  - component: {fileID: 142389577256541280}
   - component: {fileID: 2200994516593079643}
   - component: {fileID: 1940088111282692672}
   m_Layer: 0
@@ -50,6 +51,31 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &142389577256541280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2200994516593079642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9459d8f6ac057874eba77b103664fd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  dustTriggerPrefab: {fileID: 0}
+  killZonePrefab: {fileID: 0}
+  cameraPrefab: {fileID: 0}
+  cameraPrefab1: {fileID: 0}
+  plyr: {fileID: 0}
+  cameraPlayer: {fileID: 0}
+  startpos: 0
+  characterPrefab: []
+  characterPrefabMap3: []
+  characterAdded: 0
+  characterAdded1: 0
 --- !u!114 &2200994516593079643
 MonoBehaviour:
   m_ObjectHideFlags: 0

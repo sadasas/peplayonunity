@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SpawnManager : NetworkBehaviour
 {
+    public bool isLobbyScene = false;
     public static SpawnManager instance;
     private int isCharacterOne, isCharacterTwo, isCharacterThree;
     private Transform player;
@@ -29,14 +30,20 @@ public class SpawnManager : NetworkBehaviour
         }
     }
 
-    [Server]
-    public void SetCharacter(NetworkConnection conn)
-
+    //[Server]
+    public void SetCharLobby(NetworkConnection conn)
     {
-        Transform killZonePoint_0 = GameObject.Find("KillZone_0").transform;
+        Debug.Log("SetCharLobby");
+        NetworkServer.Spawn(GetChar(), conn);
+        NetworkServer.Spawn(SetCam(), conn);
+        characterAdded = true;
+        isLobbyScene = true;
+        startpos++;
+    }
 
-        GameObject setKillZone_0 = Instantiate(killZonePrefab, killZonePoint_0.position, Quaternion.identity);
-
+    //[Server]
+    public GameObject GetChar()
+    {
         if (isCharacterOne == 1)
         {
             plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[startpos].position, transform.rotation);
@@ -53,11 +60,25 @@ public class SpawnManager : NetworkBehaviour
         {
             plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[startpos].position, transform.rotation);
         }
+        return plyr;
+    }
 
+    //[Server]
+    public GameObject SetCam()
+    {
         cameraPlayer = Instantiate(cameraPrefab, NetworkManager.startPositions[startpos].position, transform.rotation);
+        return cameraPlayer;
+    }
 
-        NetworkServer.Spawn(plyr, conn);
-        NetworkServer.Spawn(cameraPlayer, conn);
+    //[Server]
+    public void SetCharacter(NetworkConnection conn)
+    {
+        Transform killZonePoint_0 = GameObject.Find("KillZone_0").transform;
+
+        GameObject setKillZone_0 = Instantiate(killZonePrefab, killZonePoint_0.position, Quaternion.identity);
+
+        NetworkServer.Spawn(GetChar(), conn);
+        NetworkServer.Spawn(SetCam(), conn);
         NetworkServer.Spawn(setKillZone_0, conn);
         characterAdded = true;
         startpos++;
@@ -100,12 +121,6 @@ public class SpawnManager : NetworkBehaviour
         characterAdded = true;
     }
 
-    [Command]
-    public void CMDspawnDust()
-    {
-        ClienRPCSpawnDust();
-    }
-
     private void Update()
     {
         if (characterAdded)
@@ -117,15 +132,28 @@ public class SpawnManager : NetworkBehaviour
             }
             if (isLocalPlayer)
             {
-                characterAdded = false;
                 AuthoryManager.instance.CMDChangeTag();
                 AuthoryManager.instance.colapse1 = false;
-                NetworkManagerTesting.instance.SetCutScene();
-                CharacterControls.cutsceneawal = true;
+                characterAdded = false;
+                if (isLobbyScene)
+                {
+                    CharacterControls.isLobbyScene = true;
+                } else
+                {
+//Default wahyu true
+                    NetworkManagerTesting.instance.SetCutScene();
+                    CharacterControls.cutsceneawal = true;
+                }
 
                 CMDspawnDust();
             }
         }
+    }
+
+    [Command]
+    public void CMDspawnDust()
+    {
+        ClienRPCSpawnDust();
     }
 
     [ClientRpc]

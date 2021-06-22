@@ -15,19 +15,19 @@ public class ServerManager : MonoBehaviour
 
     private void Update()
     {
-        if (NetworkServer.active && !colapse)
-        {
-            Debug.Log("ssssssssssssssssssffffffffffffffffffffffffffffffff");
-            colapse = true;
-            if (index == 1)
-            {
-                ServerMainMenu();
-            }
-            else if (index == 2)
-            {
-                ServerMap1();
-            }
-        }
+        //if (NetworkServer.active && !colapse)
+        //{
+        //    Debug.Log("ssssssssssssssssssffffffffffffffffffffffffffffffff");
+        //    colapse = true;
+        //    if (index == 1)
+        //    {
+        //        ServerMainMenu();
+        //    }
+        //    else if (index == 2)
+        //    {
+        //        ServerMap1();
+        //    }
+        //}
     }
 
     [Server]
