@@ -3701,3 +3701,160 @@ System memory in use after: 271.9 MB.
 Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3859.
 Total: 41.787628 ms (FindLiveObjects: 3.655884 ms CreateObjectMapping: 7.646812 ms MarkObjects: 30.444326 ms  DeleteObjects: 0.038234 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003844 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.66 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  9.138 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2724 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 271.9 MB.
+System memory in use after: 272.2 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3862.
+Total: 7.350898 ms (FindLiveObjects: 0.928660 ms CreateObjectMapping: 0.213978 ms MarkObjects: 6.137602 ms  DeleteObjects: 0.045752 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004733 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.274 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.95 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2724 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 272.2 MB.
+System memory in use after: 272.4 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3865.
+Total: 3.857472 ms (FindLiveObjects: 0.634153 ms CreateObjectMapping: 0.273987 ms MarkObjects: 2.922266 ms  DeleteObjects: 0.025279 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002172 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.16 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.285 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.66 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2724 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 272.4 MB.
+System memory in use after: 272.6 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3868.
+Total: 5.082085 ms (FindLiveObjects: 0.572912 ms CreateObjectMapping: 0.261807 ms MarkObjects: 4.205924 ms  DeleteObjects: 0.038296 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002463 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.043 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.40 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2724 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 272.7 MB.
+System memory in use after: 272.9 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3871.
+Total: 4.028952 ms (FindLiveObjects: 0.530035 ms CreateObjectMapping: 0.199186 ms MarkObjects: 3.256464 ms  DeleteObjects: 0.039746 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004157 seconds.
+Callback registration failed. Increase kMaxCallback.
+
+Fatal Error! Callback registration failed. Increase kMaxCallback.
+
+Obtained 44 stack frames.
+#0  0x007fff6772d33a in __pthread_kill
+#1  0x007fff676b4808 in abort
+#2  0x00000107a2754e in CrashDontLaunchBugReporter()
+#3  0x00000105659b97 in EditorMonoConsole::LogToConsoleImplementation(CppLogEntry const&)
+#4  0x00000105658f97 in EditorMonoConsole::LogToConsoleImplementation(DebugStringToFileData const&)
+#5  0x0000010565a92e in LogToConsoleImplementation(DebugStringToFileData const&)
+#6  0x000001073fee2d in DebugStringToFilePostprocessedStacktrace(DebugStringToFileData const&)
+#7  0x000001073ff713 in DebugStringToFile(DebugStringToFileData const&)
+#8  0x00000103085064 in CallbackArrayBase<void (*)(AssemblyLoadFailure), void (*)(void const*, AssemblyLoadFailure)>::Register(void (*)(AssemblyLoadFailure), void (*)(void const*, AssemblyLoadFailure), void const*)
+#9  0x00000105feb858 in LoadDomainAndUserAssemblies(bool)
+#10 0x00000105fee2ae in LoadUserAssemblies()
+#11 0x00000106488c79 in AssetImportWorkerClient::ReloadMonoDomain(AssetResolver&)
+#12 0x0000010649013a in core::mutable_function<void ()>::DispatchT<void IOService::PostHelper<AssetImportWorkerClient::HandleMessage(PrepareMessage const&)::$_1>(AssetImportWorkerClient::HandleMessage(PrepareMessage const&)::$_1&&, IOService::WrapCallableInFunctionTag)::'lambda'()>::Dispatch()
+#13 0x00000106561220 in asio::detail::completion_handler<core::mutable_function<void ()> >::do_complete(asio::detail::task_io_service*, asio::detail::task_io_service_operation*, std::__1::error_code const&, unsigned long)
+#14 0x0000010655e4e5 in asio::detail::task_io_service::do_run_one(asio::detail::scoped_lock<asio::detail::posix_mutex>&, asio::detail::task_io_service_thread_info&, std::__1::error_code const&)
+#15 0x0000010655df81 in asio::detail::task_io_service::run(std::__1::error_code&)
+#16 0x0000010655824a in IOService::Run(bool)
+#17 0x000001064ba1dc in RunAssetImporterV2()
+#18 0x000001057cfab3 in Application::InitializeProject()
+#19 0x00000107a32e9d in -[EditorApplication applicationDidFinishLaunching:]
+#20 0x007fff2d56b80f in __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__
+#21 0x007fff2d56b7a3 in ___CFXRegistrationPost1_block_invoke
+#22 0x007fff2d56b718 in _CFXRegistrationPost1
+#23 0x007fff2d56b384 in ___CFXNotificationPost_block_invoke
+#24 0x007fff2d53b4fd in -[_CFXNotificationRegistrar find:object:observer:enumerator:]
+#25 0x007fff2d53a9a9 in _CFXNotificationPost
+#26 0x007fff2fbb8786 in -[NSNotificationCenter postNotificationName:object:userInfo:]
+#27 0x007fff2a7ef4f3 in -[NSApplication _postDidFinishNotification]
+#28 0x007fff2a7ef232 in -[NSApplication _sendFinishLaunchingNotification]
+#29 0x007fff2a7ec2f3 in -[NSApplication(NSAppleEventHandling) _handleAEOpenEvent:]
+#30 0x007fff2a7ebf38 in -[NSApplication(NSAppleEventHandling) _handleCoreEvent:withReplyEvent:]
+#31 0x007fff2fbe3a26 in -[NSAppleEventManager dispatchRawAppleEvent:withRawReply:handlerRefCon:]
+#32 0x007fff2fbe3890 in _NSAppleEventManagerGenericHandler
+#33 0x007fff2e8e8203 in _AppleEventsCheckInAppWithBlock
+#34 0x007fff2e8e7929 in _AppleEventsCheckInAppWithBlock
+#35 0x007fff2e8dfbd7 in aeProcessAppleEvent
+#36 0x007fff2c1b27fa in AEProcessAppleEvent
+#37 0x007fff2a7e62d1 in _DPSNextEvent
+#38 0x007fff2a7e4880 in -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]
+#39 0x007fff2a7d658e in -[NSApplication run]
+#40 0x007fff2a7a8396 in NSApplicationMain
+#41 0x00000107a6dc69 in EditorMain(int, char const**)
+#42 0x00000107a6de99 in main
+#43 0x007fff675e5cc9 in start

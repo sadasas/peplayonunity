@@ -270,6 +270,7 @@ public class NetworkManagerTesting : NetworkManager
 
     public void StartGame()
     {
+        CharacterControls.isLobbyScene = false;
         ChangeScene(1);
     }
 }

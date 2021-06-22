@@ -33,6 +33,7 @@ namespace PeplayonLobby
         {
         }
 
+        [Client]
         private void updateUI()
         {
             MaxPlayer.text = MaxPlayerInt.ToString();

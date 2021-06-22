@@ -5,15 +5,21 @@ using UnityEngine;
 namespace PeplayonLobby
 {
     [AddComponentMenu("")]
-    public class DevConfigLobby : DevConfig
+    public class DevConfigLobby : DevConfig 
     {
+        public bool StartAsServerOnly = false;
         public GameManager gameManager;
         public Room room;
-
+        
         void Start()
         {
             if (isDevMode)
             {
+                if (StartAsServerOnly)
+                {
+                    var net = Instantiate(networkManagerPrefab);
+                    net.GetComponent<NetworkManagerTesting>().StartServer();
+                }
                 GameObject go = Instantiate(gameManagerPrefab);
                 gameManager = go.GetComponent<GameManager>();
                 gameManager.DataRoom = room;

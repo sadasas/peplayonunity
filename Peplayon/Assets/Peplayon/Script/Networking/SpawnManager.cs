@@ -138,6 +138,7 @@ public class SpawnManager : NetworkBehaviour
                 if (isLobbyScene)
                 {
                     CharacterControls.isLobbyScene = true;
+                    isLobbyScene = false;
                 } else
                 {
 //Default wahyu true

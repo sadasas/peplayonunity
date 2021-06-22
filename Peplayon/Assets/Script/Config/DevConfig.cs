@@ -8,6 +8,7 @@ public class DevConfig : MonoBehaviour
 {
     public bool isDevMode = true;
     public GameObject gameManagerPrefab;
+    public GameObject networkManagerPrefab;
 
     public void Start()
     {
