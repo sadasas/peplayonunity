@@ -5,6 +5,7 @@ using Mirror;
 using UnityEngine.SceneManagement;
 using Peplayon;
 using Networking;
+using kcp2k;
 
 public struct PlayerMessages : NetworkMessage
 {
@@ -19,6 +20,7 @@ public struct IndexPlayer : NetworkMessage
 public class NetworkManagerTesting : NetworkManager
 {
     [Header("Tambahan Bocil")]
+    public ushort portRunning;
     [Scene] public string LobbyScene;
     [SerializeField] GameObject networkPlayerManagerPrefab;
     public GameObject netPlayer;
@@ -50,6 +52,8 @@ public class NetworkManagerTesting : NetworkManager
     public override void OnStartServer()
     {
         Debug.Log("SERVER ACTIVE");
+        portRunning = GetComponent<KcpTransport>().Port;
+        Debug.Log($"Running in port : {portRunning}");
         base.OnStartServer();
         netPlayer = Instantiate(spawnPrefabs.Find(pref => pref.name == "--NetPlayerManager"));
         NetworkServer.Spawn(netPlayer);
@@ -92,7 +96,11 @@ public class NetworkManagerTesting : NetworkManager
     public override void OnServerChangeScene(string newSceneName)
     {
         playerCount = 0;
-        ObstacleManager.instance.itemPoint.Clear();
+        Scene activeScene = SceneManager.GetActiveScene();
+        if(activeScene.path != onlineScene)
+        {
+            ObstacleManager.instance.itemPoint.Clear();
+        }
 
         base.OnServerChangeScene(newSceneName);
     }
@@ -110,8 +118,9 @@ public class NetworkManagerTesting : NetworkManager
         {
             Debug.Log("lobby scene");
         }
-        if (activeScene.path == sceneNameList[2] || activeScene.name == sceneNameList[1])
+        if (activeScene.path == sceneNameList[2] || activeScene.path == sceneNameList[1])
         {
+            Debug.Log("OnServerSceneChanged map");
             ObstacleManager.instance.setItem = true;
             ObstacleManager.instance.setWin = true;
             ObstacleManager.instance.pointAdded = false;
@@ -135,15 +144,17 @@ public class NetworkManagerTesting : NetworkManager
         Scene activeScene = SceneManager.GetActiveScene();
         if (activeScene.path == sceneNameList[1] || activeScene.path == sceneNameList[2] || activeScene.path == sceneNameList[3])
         {
+            SpawnManager.instance.isLobbyScene = false;
             SpawnManager.instance.SetCharacter(conn);
         }
 
-        playerCount++;
         if (activeScene.path == sceneNameList[0])
         {
             AddLocalPlayer(conn);
+            SpawnManager.instance.isLobbyScene = true;
             SpawnManager.instance.SetCharLobby(conn);
         }
+        playerCount++;
 
         base.OnServerReady(conn);
     }

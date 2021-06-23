@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
+using kcp2k;
 
 namespace PeplayonLobby
 {
@@ -8,6 +10,9 @@ namespace PeplayonLobby
     public class DevConfigLobby : DevConfig 
     {
         public bool StartAsServerOnly = false;
+        public bool startAsClientOnly = false;
+        public bool startAsHost = false;
+        public ushort port = 7777;
         public GameManager gameManager;
         public Room room;
         
@@ -18,7 +23,18 @@ namespace PeplayonLobby
                 if (StartAsServerOnly)
                 {
                     var net = Instantiate(networkManagerPrefab);
+                    net.GetComponent<NetworkManagerTesting>().GetComponent<KcpTransport>().Port = port;
                     net.GetComponent<NetworkManagerTesting>().StartServer();
+                } else if (startAsClientOnly)
+                {
+                    var net = Instantiate(networkManagerPrefab);
+                    net.GetComponent<NetworkManagerTesting>().GetComponent<KcpTransport>().Port = port;
+                    net.GetComponent<NetworkManagerTesting>().StartClient();
+                } else if(startAsHost)
+                {
+                    var net = Instantiate(networkManagerPrefab);
+                    net.GetComponent<NetworkManagerTesting>().GetComponent<KcpTransport>().Port = port;
+                    net.GetComponent<NetworkManagerTesting>().StartHost();
                 }
                 GameObject go = Instantiate(gameManagerPrefab);
                 gameManager = go.GetComponent<GameManager>();

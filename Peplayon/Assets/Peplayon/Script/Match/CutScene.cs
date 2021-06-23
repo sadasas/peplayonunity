@@ -33,12 +33,14 @@ public class CutScene : MonoBehaviour
         {
             if (index == 1)
             {
-                dd = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
+                //dd = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
+                dd = FindObjectOfType<CameraManager>().gameObject;
                 Camera1 = GameObject.FindGameObjectWithTag("Camera1").GetComponent<Camera>();
                 Camera2 = GameObject.FindGameObjectWithTag("Camera2").GetComponent<Camera>();
                 cr = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterControls>();
                 run = false;
                 StartCoroutine(startCutScene());
+                CharacterControls.cutsceneawal = false;
             }
             else if (index == 2)
             {
@@ -173,6 +175,7 @@ public class CutScene : MonoBehaviour
         CountStart.SetActive(false);
         horn.Play();
         yield return new WaitForSeconds(1);
+        dd.SetActive(true);
         CharacterControls.cutsceneawal = false;
     }
 }

@@ -25,6 +25,11 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+#Clone skip
+./Peplayon_clone_1
+./Peplayon_clone_0
+./Peplayon_clone_2
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta

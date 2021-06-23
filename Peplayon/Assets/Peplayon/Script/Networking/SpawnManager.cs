@@ -30,7 +30,7 @@ public class SpawnManager : NetworkBehaviour
         }
     }
 
-    //[Server]
+    [Server]
     public void SetCharLobby(NetworkConnection conn)
     {
         Debug.Log("SetCharLobby");
@@ -41,7 +41,7 @@ public class SpawnManager : NetworkBehaviour
         startpos++;
     }
 
-    //[Server]
+    [Server]
     public GameObject GetChar()
     {
         if (isCharacterOne == 1)
@@ -63,16 +63,18 @@ public class SpawnManager : NetworkBehaviour
         return plyr;
     }
 
-    //[Server]
+    [Server]
     public GameObject SetCam()
     {
+        Debug.Log("setCam");
         cameraPlayer = Instantiate(cameraPrefab, NetworkManager.startPositions[startpos].position, transform.rotation);
         return cameraPlayer;
     }
 
-    //[Server]
+    [Server]
     public void SetCharacter(NetworkConnection conn)
     {
+        Debug.Log("Set Char");
         Transform killZonePoint_0 = GameObject.Find("KillZone_0").transform;
 
         GameObject setKillZone_0 = Instantiate(killZonePrefab, killZonePoint_0.position, Quaternion.identity);
@@ -138,12 +140,12 @@ public class SpawnManager : NetworkBehaviour
                 if (isLobbyScene)
                 {
                     CharacterControls.isLobbyScene = true;
-                    isLobbyScene = false;
-                } else
+                    Debug.Log("SetCutScene false");
+                }
+                else
                 {
-//Default wahyu true
+                    //Default wahyu true
                     NetworkManagerTesting.instance.SetCutScene();
-                    CharacterControls.cutsceneawal = true;
                 }
 
                 CMDspawnDust();

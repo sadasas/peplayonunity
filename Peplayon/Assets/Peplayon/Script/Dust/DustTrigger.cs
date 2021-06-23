@@ -49,13 +49,14 @@ public class DustTrigger : NetworkBehaviour
             StartCoroutine("spawndust");
             CoroutineAllowed = false;
         }
-        if (cr.blend <= 0 || !Grounded)
-        {
-            walk.Stop();
+        //Gw matiin sementara
+        //if (cr.blend <= 0 || !Grounded)
+        //{
+        //    walk.Stop();
 
-            StopCoroutine("spawndust");
-            CoroutineAllowed = true;
-        }
+        //    StopCoroutine("spawndust");
+        //    CoroutineAllowed = true;
+        //}
         UpdateVolume();
     }
 

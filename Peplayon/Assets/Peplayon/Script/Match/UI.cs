@@ -46,7 +46,8 @@ public class UI : NetworkBehaviour
         {
             Debug.Log("CUTSCENE");
             cutScene.SetActive(true);
-            CutScene.instance.DestroyObject();
+            // Gw turn Off dulu [CutScene run OK]
+            //CutScene.instance.DestroyObject();
 
             CutScene.instance.index = 1;
             CutScene.instance.run = true;

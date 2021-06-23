@@ -19,6 +19,7 @@ public class CharacterControls : NetworkBehaviour
     public static bool cutsceneawal = true;
     public static bool isLobbyScene = false;
 
+    [SerializeField]
     private GameObject cam = null;
 
     public Rigidbody rb;
@@ -88,7 +89,7 @@ public class CharacterControls : NetworkBehaviour
             MusicPlayer musicplayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
             musicplayer.BGMINGAME = true;
             if (!hasAuthority) return;
-
+            Debug.Log("cutsceneawal false");
             //Gw extract buat lobby
             ControllerPlayerExt();
         }
@@ -102,11 +103,13 @@ public class CharacterControls : NetworkBehaviour
     /**
      * Intinya ini gw extract
      */
+    [Client]
     private void ControllerPlayerExt()
     {
-        cam = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
+        //cam = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
+        cam = FindObjectOfType<CameraManager>().gameObject;
         rb = GetComponent<Rigidbody>();
-
+        Debug.Log("Done");
         blendtohash = Animator.StringToHash("Blend");
         anim.SetFloat(blendtohash, blend);
 
@@ -213,7 +216,7 @@ public class CharacterControls : NetworkBehaviour
     [Client]
     private void Update()
     {
-        if (cutsceneawal == false || isLobbyScene)
+        if (cutsceneawal == false)
         {
             if (!hasAuthority) return;
             cam = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
