@@ -84,7 +84,7 @@ public class CharacterControls : NetworkBehaviour
     [Client]
     private void FixedUpdate()
     {
-        if (cutsceneawal == false)
+        //if (cutsceneawal == false)
         {
             MusicPlayer musicplayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
             musicplayer.BGMINGAME = true;
@@ -103,8 +103,7 @@ public class CharacterControls : NetworkBehaviour
     /**
      * Intinya ini gw extract
      */
-    [Client]
-    private void ControllerPlayerExt()
+    public void ControllerPlayerExt()
     {
         //cam = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
         cam = FindObjectOfType<CameraManager>().gameObject;
@@ -216,10 +215,13 @@ public class CharacterControls : NetworkBehaviour
     [Client]
     private void Update()
     {
-        if (cutsceneawal == false)
-        {
+        //if (cutsceneawal == false)
+        //{
             if (!hasAuthority) return;
-            cam = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
+            //cam = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
+            Debug.Log("Find Cam");
+            cam = FindObjectOfType<CameraManager>().gameObject;
+        cam.SetActive(true);
             rb = GetComponent<Rigidbody>();
 
             float h = Input.GetAxis("Horizontal");
@@ -241,7 +243,7 @@ public class CharacterControls : NetworkBehaviour
                       slide = false;
                   }
               }*/
-        }
+        //}
     }
 
     private float CalculateJumpVerticalSpeed()

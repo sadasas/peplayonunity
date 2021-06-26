@@ -33,6 +33,7 @@ public class CutScene : MonoBehaviour
         {
             if (index == 1)
             {
+                //Debug.Log("Find Cam");
                 //dd = GameObject.FindGameObjectWithTag("PlayerCamera").gameObject;
                 dd = FindObjectOfType<CameraManager>().gameObject;
                 Camera1 = GameObject.FindGameObjectWithTag("Camera1").GetComponent<Camera>();
@@ -147,8 +148,8 @@ public class CutScene : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        Camera2.enabled = false;
         dd.SetActive(true);
+        Camera2.enabled = false;
         countdown.Play();
         CountStart.SetActive(true);
         LeanTween.scale(CountStart, Vector3.one, 0.3f)
@@ -175,7 +176,6 @@ public class CutScene : MonoBehaviour
         CountStart.SetActive(false);
         horn.Play();
         yield return new WaitForSeconds(1);
-        dd.SetActive(true);
-        CharacterControls.cutsceneawal = false;
+        Debug.Log("HARUSNYA NYALA");
     }
 }

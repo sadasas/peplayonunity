@@ -79,8 +79,27 @@ public class SpawnManager : NetworkBehaviour
 
         GameObject setKillZone_0 = Instantiate(killZonePrefab, killZonePoint_0.position, Quaternion.identity);
 
-        NetworkServer.Spawn(GetChar(), conn);
-        NetworkServer.Spawn(SetCam(), conn);
+        if (isCharacterOne == 1)
+        {
+            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[startpos].position, transform.rotation);
+        }
+        else if (isCharacterTwo == 1)
+        {
+            plyr = Instantiate(characterPrefab[1], NetworkManager.startPositions[startpos].position, transform.rotation);
+        }
+        else if (isCharacterThree == 1)
+        {
+            plyr = Instantiate(characterPrefab[2], NetworkManager.startPositions[startpos].position, transform.rotation);
+        }
+        else
+        {
+            plyr = Instantiate(characterPrefab[0], NetworkManager.startPositions[startpos].position, transform.rotation);
+        }
+
+        cameraPlayer = Instantiate(cameraPrefab, NetworkManager.startPositions[startpos].position, transform.rotation);
+
+        NetworkServer.Spawn(plyr, conn);
+        NetworkServer.Spawn(cameraPlayer, conn);
         NetworkServer.Spawn(setKillZone_0, conn);
         characterAdded = true;
         startpos++;
@@ -144,6 +163,7 @@ public class SpawnManager : NetworkBehaviour
                 }
                 else
                 {
+                    Debug.Log("SetCutScene true");
                     //Default wahyu true
                     NetworkManagerTesting.instance.SetCutScene();
                 }
